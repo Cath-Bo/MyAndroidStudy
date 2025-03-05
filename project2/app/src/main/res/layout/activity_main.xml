@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E91E63"
+    tools:context=".MainActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#BD0CE9"
+        android:isScrollContainer="true"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="16dp">
+
+        <TextView
+            android:id="@+id/TextViewResult"
+            android:layout_width="800dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="150dp"
+            android:background="#FFEB3B"
+            android:gravity="center"
+            android:text="What is your gender?"
+            android:textColor="#9C27B0"
+            android:textSize="60sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <CheckBox
+            android:id="@+id/CheckBoxMale"
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="200dp"
+            android:gravity="center"
+            android:text="Male"
+            android:textSize="60sp"
+            app:buttonIconTint="#FFC107"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/TextViewResult" />
+
+        <CheckBox
+            android:id="@+id/checkBoxFemale"
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="200dp"
+            android:gravity="center"
+            android:text="Female"
+            android:textSize="60sp"
+            app:buttonIconTint="#E91E63"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/CheckBoxMale" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
