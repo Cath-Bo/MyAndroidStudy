@@ -2,16 +2,21 @@ package com.kitten.checkboxandmore
 
 import android.graphics.Color
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.CheckBox
+import android.widget.CompoundButton
+import android.widget.ImageView
 import android.widget.RadioButton
 import android.widget.TextView
+import android.widget.ToggleButton
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.transition.Visibility
 
 class MainActivity : AppCompatActivity() {
 
@@ -24,6 +29,9 @@ class MainActivity : AppCompatActivity() {
     lateinit var yellow : RadioButton
     lateinit var changeColor : Button
     lateinit var layout : ConstraintLayout
+
+    lateinit var imageViewMain : ImageView
+    lateinit var hideImage : ToggleButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,6 +47,9 @@ class MainActivity : AppCompatActivity() {
 
         changeColor = findViewById(R.id.buttonChangeColor)
         layout = findViewById(R.id.constraintLayout)
+
+        hideImage = findViewById(R.id.toggleButtonHideImage)
+        imageViewMain = findViewById(R.id.imageViewMain)
 
         male.setOnClickListener{
             if(male.isChecked) {
@@ -70,5 +81,13 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        hideImage.setOnCheckedChangeListener{ compoundButton, isChecked ->
+            if(isChecked){
+                imageViewMain.visibility = View.INVISIBLE
+            }
+            else{
+                imageViewMain.visibility = View.VISIBLE
+            }
+        }
     }
 }

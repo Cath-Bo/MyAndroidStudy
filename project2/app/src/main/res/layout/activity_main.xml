@@ -10,18 +10,18 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="407dp"
+        android:layout_height="807dp"
         android:background="#BD0CE9"
         android:isScrollContainer="true"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="16dp">
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="2dp">
 
         <TextView
             android:id="@+id/TextViewResult"
             android:layout_width="300dp"
             android:layout_height="60dp"
-            android:layout_marginTop="150dp"
+            android:layout_marginTop="20dp"
             android:background="#FFEB3B"
             android:gravity="center"
             android:text="What is your gender?"
@@ -29,6 +29,7 @@
             android:textSize="24sp"
             android:textStyle="bold|italic"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -36,12 +37,13 @@
             android:id="@+id/CheckBoxMale"
             android:layout_width="150dp"
             android:layout_height="50dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:gravity="center"
             android:text="Male"
             android:textSize="20sp"
             app:buttonIconTint="#FFC107"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/TextViewResult" />
 
@@ -49,11 +51,12 @@
             android:id="@+id/checkBoxFemale"
             android:layout_width="150dp"
             android:layout_height="50dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="2dp"
             android:gravity="center"
             android:text="Female"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/CheckBoxMale" />
 
@@ -61,44 +64,45 @@
             android:id="@+id/radioGroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="20dp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/checkBoxFemale">
 
             <RadioButton
                 android:id="@+id/yellow"
-                android:checked="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:width="150dp"
-                app:buttonTint="#FFC107"
+                android:checked="true"
                 android:paddingStart="10dp"
                 android:text="yellow"
                 android:textColor="#FFC107"
-                android:textSize="24sp" />
+                android:textSize="24sp"
+                app:buttonTint="#FFC107" />
 
             <RadioButton
                 android:id="@+id/red"
-                app:buttonTint = "#ff0000"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:width="150dp"
                 android:paddingStart="10dp"
                 android:text="red"
                 android:textColor="#ff0000"
-                android:textSize="24sp" />
+                android:textSize="24sp"
+                app:buttonTint="#ff0000" />
 
             <RadioButton
                 android:id="@+id/green"
-                app:buttonTint="#00FF00"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:width="150dp"
                 android:paddingStart="10dp"
                 android:text="green"
                 android:textColor="#00FF00"
-                android:textSize="24sp" />
+                android:textSize="24sp"
+                app:buttonTint="#00FF00" />
 
         </RadioGroup>
 
@@ -106,15 +110,40 @@
             android:id="@+id/buttonChangeColor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="#0000ff"
             android:text="Change color"
+            android:textColor="#ff00ff"
             android:textSize="30sp"
             android:textStyle="bold|italic"
-            android:backgroundTint="#0000ff"
-            android:textColor="#ff00ff"
-            android:layout_marginTop="40dp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
+        <ImageView
+            android:id="@+id/imageViewMain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonChangeColor"
+            app:srcCompat="@drawable/image_for_my_pet_proj" />
+
+        <ToggleButton
+            android:id="@+id/toggleButtonHideImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="#ED0B0B"
+            app:cornerRadius="50dp"
+            android:textOff="Hide image"
+            android:textOn="Show image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewMain" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
