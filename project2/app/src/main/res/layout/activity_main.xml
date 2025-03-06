@@ -9,6 +9,7 @@
     tools:context=".MainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#BD0CE9"
@@ -55,6 +56,64 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/CheckBoxMale" />
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/checkBoxFemale">
+
+            <RadioButton
+                android:id="@+id/yellow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:width="150dp"
+                app:buttonTint="#FFC107"
+                android:paddingStart="10dp"
+                android:text="yellow"
+                android:textColor="#FFC107"
+                android:textSize="24sp" />
+
+            <RadioButton
+                android:id="@+id/red"
+                app:buttonTint = "#ff0000"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:width="150dp"
+                android:paddingStart="10dp"
+                android:text="red"
+                android:textColor="#ff0000"
+                android:textSize="24sp" />
+
+            <RadioButton
+                android:id="@+id/green"
+                app:buttonTint="#00FF00"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:width="150dp"
+                android:paddingStart="10dp"
+                android:text="green"
+                android:textColor="#00FF00"
+                android:textSize="24sp" />
+
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/buttonChangeColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Change color"
+            android:textSize="30sp"
+            android:textStyle="bold|italic"
+            android:backgroundTint="#0000ff"
+            android:textColor="#ff00ff"
+            android:layout_marginTop="40dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

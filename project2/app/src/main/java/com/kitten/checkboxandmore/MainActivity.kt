@@ -14,6 +14,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var male : CheckBox
     lateinit var femail : CheckBox
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
