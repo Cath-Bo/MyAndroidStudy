@@ -12,14 +12,17 @@ import android.widget.ImageView
 import android.widget.RadioButton
 import android.widget.Spinner
 import android.widget.TextView
+import android.widget.Toast
 import android.widget.ToggleButton
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.transition.Visibility
+import com.google.android.material.appbar.MaterialToolbar
 
 class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
@@ -38,6 +41,8 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
     lateinit var spinnerChoice :  Spinner
     lateinit var textViewChoice : TextView
+
+    lateinit var toolBar : MaterialToolbar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -60,6 +65,23 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         spinnerChoice = findViewById(R.id.spinnerChoice)
         textViewChoice = findViewById(R.id.textViewChoice)
 
+        toolBar = findViewById(R.id.toolBar)
+        toolBar.overflowIcon = AppCompatResources.getDrawable(this, R.drawable.baseline_more_vert_24)
+
+        toolBar.setNavigationOnClickListener{
+            Toast.makeText(applicationContext, "Navigation Icon is clicked", Toast.LENGTH_SHORT).show()
+        }
+
+        toolBar.setOnMenuItemClickListener{ item ->
+
+           when(item.itemId){
+               R.id.share -> Toast.makeText(applicationContext, "Share Icon is clicked", Toast.LENGTH_SHORT).show()
+               R.id.edit -> Toast.makeText(applicationContext, "Edit Icon is clicked", Toast.LENGTH_SHORT).show()
+               R.id.settings -> Toast.makeText(applicationContext, "Settings Icon clicked",  Toast.LENGTH_SHORT).show()
+               else -> Toast.makeText(applicationContext, "Sign out Icon is clicked", Toast.LENGTH_SHORT).show()
+           }
+            return@setOnMenuItemClickListener true
+        }
         male.setOnClickListener {
             if (male.isChecked) {
                 result.setText("Your gender is male")

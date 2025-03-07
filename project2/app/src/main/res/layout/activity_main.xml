@@ -16,12 +16,32 @@
         android:isScrollContainer="true"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="2dp">
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/my_bar_primary_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:title="Hello, you"
+                app:titleTextColor="?attr/colorOnPrimary"
+                app:subtitle="have a nice day"
+                app:subtitleTextColor="?attr/colorPrimaryVariant"
+                app:navigationIcon="@drawable/baseline_menu_24"
+                app:navigationIconTint="?attr/colorOnPrimary"
+                app:menu="@menu/toolbar_menu"
+                />
+        </com.google.android.material.appbar.AppBarLayout>
         <TextView
             android:id="@+id/TextViewResult"
             android:layout_width="300dp"
             android:layout_height="60dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="90dp"
             android:background="#FFEB3B"
             android:gravity="center"
             android:text="What is your gender?"
@@ -156,6 +176,8 @@
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
+            android:backgroundTint="#CDDC39"
+            android:popupBackground="@color/material_dynamic_primary90"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
