@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">CheckBoxAndMore</string>
+    <string-array name="choice">
+        <item> </item>
+        <item> eat</item>
+        <item> dream</item>
+        <item> sleep</item>
+        <item> study</item>
+    </string-array>
 </resources>

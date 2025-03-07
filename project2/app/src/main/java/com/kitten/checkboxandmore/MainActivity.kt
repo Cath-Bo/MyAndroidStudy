@@ -3,11 +3,14 @@ package com.kitten.checkboxandmore
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.CompoundButton
 import android.widget.ImageView
 import android.widget.RadioButton
+import android.widget.Spinner
 import android.widget.TextView
 import android.widget.ToggleButton
 import androidx.activity.enableEdgeToEdge
@@ -18,7 +21,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.transition.Visibility
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
     lateinit var result : TextView
     lateinit var male : CheckBox
@@ -32,6 +35,9 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var imageViewMain : ImageView
     lateinit var hideImage : ToggleButton
+
+    lateinit var spinnerChoice :  Spinner
+    lateinit var textViewChoice : TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,43 +57,67 @@ class MainActivity : AppCompatActivity() {
         hideImage = findViewById(R.id.toggleButtonHideImage)
         imageViewMain = findViewById(R.id.imageViewMain)
 
-        male.setOnClickListener{
-            if(male.isChecked) {
+        spinnerChoice = findViewById(R.id.spinnerChoice)
+        textViewChoice = findViewById(R.id.textViewChoice)
+
+        spinnerChoice.onItemSelectedListener = this
+
+        male.setOnClickListener {
+            if (male.isChecked) {
                 result.setText("Your gender is male")
                 femail.isChecked = false
-            }
-            else{
+            } else {
                 result.setText("What is your gender?")
             }
         }
-        femail.setOnClickListener{
-            if(femail.isChecked){
+        femail.setOnClickListener {
+            if (femail.isChecked) {
                 result.text = "Your gender is female"
                 male.isChecked = false
-            }
-            else{
+            } else {
                 result.text = "What is your gender?"
             }
         }
-        changeColor.setOnClickListener{
-            if(red.isChecked){
+        changeColor.setOnClickListener {
+            if (red.isChecked) {
                 layout.setBackgroundColor(Color.RED)
-            }
-            else if(green.isChecked){
+            } else if (green.isChecked) {
                 layout.setBackgroundColor(Color.GREEN)
-            }
-            else if(yellow.isChecked){
+            } else if (yellow.isChecked) {
                 layout.setBackgroundColor(Color.YELLOW)
             }
         }
 
-        hideImage.setOnCheckedChangeListener{ compoundButton, isChecked ->
-            if(isChecked){
+        hideImage.setOnCheckedChangeListener { compoundButton, isChecked ->
+            if (isChecked) {
                 imageViewMain.visibility = View.INVISIBLE
-            }
-            else{
+            } else {
                 imageViewMain.visibility = View.VISIBLE
             }
         }
+        var arrayAdapter = ArrayAdapter.createFromResource(
+            this,
+            R.array.choice,
+            android.R.layout.simple_spinner_item
+        )
+        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+
+        spinnerChoice.adapter = arrayAdapter
+    }
+
+    override fun onItemSelected(
+        parent: AdapterView<*>?,
+        view: View?,
+        position: Int,
+        id: Long
+    ) {
+        var choice = parent!!.getItemAtPosition(position).toString()
+        if(parent!=null){
+            textViewChoice.text = "Your choice is to...$choice"
+        }
+    }
+
+    override fun onNothingSelected(parent: AdapterView<*>?) {
+        TODO("Not yet implemented")
     }
 }
