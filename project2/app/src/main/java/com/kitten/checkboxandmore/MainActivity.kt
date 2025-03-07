@@ -60,8 +60,6 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         spinnerChoice = findViewById(R.id.spinnerChoice)
         textViewChoice = findViewById(R.id.textViewChoice)
 
-        spinnerChoice.onItemSelectedListener = this
-
         male.setOnClickListener {
             if (male.isChecked) {
                 result.setText("Your gender is male")
@@ -95,6 +93,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
                 imageViewMain.visibility = View.VISIBLE
             }
         }
+        spinnerChoice.onItemSelectedListener = this
         var arrayAdapter = ArrayAdapter.createFromResource(
             this,
             R.array.choice,
@@ -112,9 +111,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         id: Long
     ) {
         var choice = parent!!.getItemAtPosition(position).toString()
-        if(parent!=null){
-            textViewChoice.text = "Your choice is to...$choice"
-        }
+        textViewChoice.text = "Your choice is to...$choice"
     }
 
     override fun onNothingSelected(parent: AdapterView<*>?) {
