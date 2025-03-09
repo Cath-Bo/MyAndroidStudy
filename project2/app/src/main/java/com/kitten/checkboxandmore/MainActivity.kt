@@ -2,26 +2,21 @@ package com.kitten.checkboxandmore
 
 import android.graphics.Color
 import android.os.Bundle
+import android.text.Layout
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.CheckBox
-import android.widget.CompoundButton
 import android.widget.ImageView
 import android.widget.RadioButton
 import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
 import android.widget.ToggleButton
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.constraintlayout.widget.ConstraintSet
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.transition.Visibility
 import com.google.android.material.appbar.MaterialToolbar
 
 class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
@@ -35,6 +30,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
     lateinit var yellow : RadioButton
     lateinit var changeColor : Button
     lateinit var layout : ConstraintLayout
+    lateinit var mainId : ConstraintLayout
 
     lateinit var imageViewMain : ImageView
     lateinit var hideImage : ToggleButton
@@ -58,6 +54,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
         changeColor = findViewById(R.id.buttonChangeColor)
         layout = findViewById(R.id.constraintLayout)
+        mainId = findViewById(R.id.mainId)
 
         hideImage = findViewById(R.id.toggleButtonHideImage)
         imageViewMain = findViewById(R.id.imageViewMain)
@@ -101,10 +98,13 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         changeColor.setOnClickListener {
             if (red.isChecked) {
                 layout.setBackgroundColor(Color.RED)
+                mainId.setBackgroundColor(Color.RED)
             } else if (green.isChecked) {
                 layout.setBackgroundColor(Color.GREEN)
+                mainId.setBackgroundColor(Color.GREEN)
             } else if (yellow.isChecked) {
                 layout.setBackgroundColor(Color.YELLOW)
+                mainId.setBackgroundColor(Color.YELLOW)
             }
         }
 
